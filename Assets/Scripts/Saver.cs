@@ -8,11 +8,11 @@ using System.IO;
 public class Saver : MonoBehaviour
 {
     [HideInInspector]
-    public List<Line> LineListToSave = new List<Line>();
+    public List<LineContent> LineListToSave = new List<LineContent>();
 
     private void Awake()
     {
-        //LoadGame();
+        LoadGame();
     }
 
     public void SaveGame()
@@ -54,8 +54,8 @@ public class Saver : MonoBehaviour
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class SavedData
 {
-    public List<Line> savedLineList;
+    public List<LineContent> savedLineList = new List<LineContent>();
 }

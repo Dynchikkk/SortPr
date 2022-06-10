@@ -40,8 +40,8 @@ public class Logic : MonoBehaviour
         for (int i = 0; i < lineList.Count; i++)
         {
             var locList = _saverCopy.LineListToSave[i];
-            lineList[i].SetParam(locList.currentLine.date, locList.currentLine.name, 
-                locList.currentLine.brought, locList.currentLine.taken, locList.currentLine.left);
+            lineList[i].SetParam(locList.date, locList.name, 
+                locList.brought, locList.taken, locList.left);
         }
     }
 
@@ -49,7 +49,7 @@ public class Logic : MonoBehaviour
     {
         foreach (var item in lineList)
         {
-            _saverCopy.LineListToSave.Add(item);
+            _saverCopy.LineListToSave.Add(item.currentLine);
         }
 
         _saverCopy.SaveGame();

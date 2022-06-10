@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+
 public class Line : MonoBehaviour
 {
     public int lineNum;
@@ -83,7 +84,7 @@ public class Line : MonoBehaviour
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class LineContent
 {
     public string date;
