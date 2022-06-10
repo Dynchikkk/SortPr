@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class CreateButton : MonoBehaviour
 {
-    //public GameObject LineParent;
-
-    //[Header("InstantiateCharacteristic")]
-    //public float space;
-
     public void NewLine()
     {
         Logic localMain = Logic.main;
@@ -20,7 +15,7 @@ public class CreateButton : MonoBehaviour
         Line current = newLine.GetComponent<Line>();
 
         // Добавляем линию в список со всеми линиями
-        current.lineNum = localMain.lineList.Count;
+        current.lineNum = localMain.lineList.Count + 1;
 
         // Присваиваем номер
         localMain.lineList.Add(current);

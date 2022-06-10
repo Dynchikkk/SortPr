@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Finder : MonoBehaviour
 {
@@ -28,10 +29,7 @@ public class Finder : MonoBehaviour
     {
         Line needLine = Logic.main.lineList[_neededLine];
         finderLine.number.text = needLine.lineNum.ToString();
-        finderLine.dateField.text = needLine.dateField.text;
-        finderLine.nameField.text = needLine.nameField.text;
-        finderLine.broughtField.text = needLine.broughtField.text;
-        finderLine.takenField.text = needLine.takenField.text;
-        finderLine.leftField.text = needLine.leftField.text;
+        finderLine.SetParam(needLine.currentLine.date, needLine.currentLine.name,
+            needLine.currentLine.brought, needLine.currentLine.taken, needLine.currentLine.left);
     }
 }
