@@ -16,6 +16,7 @@ public class Logic : MonoBehaviour
     [Header("Another")]
     [SerializeField]
     private CreateButton _creater;
+    public Button saveButton;
 
     private Saver _saverCopy;
 
@@ -32,14 +33,16 @@ public class Logic : MonoBehaviour
 
     public void UseSavedData()
     {
-        for (int i = 0; i < _saverCopy.LineListToSave.Count; i++)
+        for (int i = 0; i < _saverCopy.lineListToSave.Count; i++)
         {
             _creater.NewLine();
         }
 
+        print(_saverCopy.lineListToSave.Count);
+
         for (int i = 0; i < lineList.Count; i++)
         {
-            var locList = _saverCopy.LineListToSave[i];
+            var locList = _saverCopy.lineListToSave[i];
             lineList[i].SetParam(locList.date, locList.name, 
                 locList.brought, locList.taken, locList.left);
         }
@@ -47,11 +50,19 @@ public class Logic : MonoBehaviour
 
     public void PrepareToSave()
     {
+        _saverCopy.lineListToSave.Clear();
         foreach (var item in lineList)
         {
-            _saverCopy.LineListToSave.Add(item.currentLine);
+            _saverCopy.lineListToSave.Add(item.currentLine);
         }
 
         _saverCopy.SaveGame();
+    }
+
+    public void SetConditionToList(bool condition)
+    {
+        lineParent.SetActive(condition);
+        _creater.gameObject.SetActive(condition);
+        saveButton.gameObject.SetActive(condition);
     }
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
 public class Saver : MonoBehaviour
 {
     [HideInInspector]
-    public List<LineContent> LineListToSave = new List<LineContent>();
+    public List<LineContent> lineListToSave = new List<LineContent>();
 
     private void Awake()
     {
+        //LoadGame();
         LoadGame();
     }
 
@@ -21,19 +21,24 @@ public class Saver : MonoBehaviour
         FileStream file = File.Create(Application.persistentDataPath
           + "/MySaveData.dat");
         SavedData data = new SavedData();
+        data.savedLineList.Clear();
 
-        foreach (var item in LineListToSave)
+        foreach (var item in lineListToSave)
         {
             data.savedLineList.Add(item);
         }
 
         bf.Serialize(file, data);
         file.Close();
+
+        lineListToSave.Clear();
+
         Debug.Log("Game data saved!");
     }
-
     public void LoadGame()
     {
+        lineListToSave.Clear();
+
         if (File.Exists(Application.persistentDataPath
           + "/MySaveData.dat"))
         {
@@ -43,10 +48,12 @@ public class Saver : MonoBehaviour
               + "/MySaveData.dat", FileMode.Open);
             SavedData data = (SavedData)bf.Deserialize(file);
             file.Close();
+
             foreach (var item in data.savedLineList)
             {
-                LineListToSave.Add(item);
+                lineListToSave.Add(item);
             }
+
             Debug.Log("Game data loaded!");
         }
         else
