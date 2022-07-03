@@ -6,6 +6,7 @@ using TMPro;
 using System;
 
 
+
 public class Line : MonoBehaviour
 {
     public int lineNum;
@@ -58,7 +59,6 @@ public class Line : MonoBehaviour
 
         if (lf != null)
             leftField.text = currentLine.left.ToString();
-
     }
 
     // Получаем параметры
@@ -76,11 +76,33 @@ public class Line : MonoBehaviour
     // Получаем текст из инпута
     public void SetParamFromInput(Line cur)
     {
+        int br, tk, lf;
+        Int32.TryParse(cur.broughtField.text, out br);
+        Int32.TryParse(cur.takenField.text, out tk);
+        Int32.TryParse(cur.leftField.text, out lf);
+
         SetParam(cur.dateField.text,
-            cur.nameField.text,
-            Convert.ToInt32(cur.broughtField.text),
-            Convert.ToInt32(cur.takenField.text),
-            Convert.ToInt32(cur.leftField.text));
+            cur.nameField.text, br, tk, lf);
+    }
+
+    public void ReformDate(Line cur)
+    {
+        TMP_InputField df = cur.dateField;
+        switch (df.text.Length)
+        {
+            case 2:
+                df.text += ".";
+                df.stringPosition += 1;
+                break;
+
+            case 5:
+                df.text += ".";
+                df.stringPosition += 1;
+                break;
+
+            default:
+                break;
+        }
     }
 }
 

@@ -38,8 +38,6 @@ public class Logic : MonoBehaviour
             _creater.NewLine();
         }
 
-        print(_saverCopy.lineListToSave.Count);
-
         for (int i = 0; i < lineList.Count; i++)
         {
             var locList = _saverCopy.lineListToSave[i];

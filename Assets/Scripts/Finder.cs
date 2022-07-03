@@ -31,6 +31,11 @@ public class Finder : MonoBehaviour
             }
         }
 
+        if (name == "")
+        {
+            _findedLines.Clear();
+        }
+
         SpawnFindedLines();
     }
 
@@ -85,12 +90,4 @@ public class Finder : MonoBehaviour
 
         _spawnsLine.Clear();
     }
-
-    //public void SetFinderLine()
-    //{
-    //    Line needLine = Logic.main.lineList[_neededLine];
-    //    finderLine.number.text = needLine.lineNum.ToString();
-    //    finderLine.SetParam(needLine.currentLine.date, needLine.currentLine.name,
-    //        needLine.currentLine.brought, needLine.currentLine.taken, needLine.currentLine.left);
-    //}
 }
