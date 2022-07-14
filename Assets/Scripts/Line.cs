@@ -20,6 +20,9 @@ public class Line : MonoBehaviour
     public TMP_InputField takenField;
     public TMP_InputField leftField;
 
+    // Anonther
+    private int prevLength;
+
     public void Start()
     {
         number.text = lineNum.ToString();
@@ -88,21 +91,30 @@ public class Line : MonoBehaviour
     public void ReformDate(Line cur)
     {
         TMP_InputField df = cur.dateField;
-        switch (df.text.Length)
+        string dfText = df.text;
+        if (dfText.Length > 0)
         {
-            case 2:
-                df.text += ".";
-                df.stringPosition += 1;
-                break;
-
-            case 5:
-                df.text += ".";
-                df.stringPosition += 1;
-                break;
-
-            default:
-                break;
+            df.onValueChanged.RemoveAllListeners();
+            if (!char.IsDigit(dfText[dfText.Length - 1]) && dfText[dfText.Length - 1] != '/')
+            { // Remove Letters
+                df.text = dfText.Remove(dfText.Length - 1);
+                df.caretPosition = df.text.Length;
+            }
+            else if (dfText.Length == 2 || dfText.Length == 5)
+            {
+                if (dfText.Length < prevLength)
+                { // Delete
+                    df.text = dfText.Remove(dfText.Length - 1);
+                    df.caretPosition = df.text.Length;
+                }
+                else
+                { // Add
+                    df.text = dfText + "/";
+                    df.caretPosition = df.text.Length;
+                }
+            }
         }
+        prevLength = df.text.Length;
     }
 }
 
