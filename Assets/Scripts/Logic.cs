@@ -13,10 +13,15 @@ public class Logic : MonoBehaviour
     public Line linePref;
     public GameObject lineParent;
 
-    [Header("Another")]
+    [Header("Finder Atribute")]
     [SerializeField]
     private CreateButton _creater;
     public Button saveButton;
+
+    [Header("Section Atribute")]
+    public List<Section> sectionsList = new List<Section>();
+    public Section sectionPref;
+    public GameObject sectionParent;
 
     private Saver _saverCopy;
 
