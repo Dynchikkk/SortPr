@@ -5,15 +5,10 @@ using UnityEngine.UI;
 
 public class CreateButton : MonoBehaviour
 {
-    Logic localMain;
-
-    private void Awake()
-    {
-        localMain = Logic.main;
-    }
-
     public void NewLine()
     {
+        Logic localMain = Logic.main;
+
         // Создаем линию
         GameObject newLine = Instantiate(localMain.linePref.gameObject, localMain.lineParent.transform);
         newLine.name = localMain.lineList.Count + newLine.name;

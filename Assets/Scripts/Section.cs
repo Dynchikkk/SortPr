@@ -13,6 +13,11 @@ public class Section : MonoBehaviour
     public TMP_InputField parName;
     public Button toPar;
 
+    public void Start()
+    {
+        number.text = parContent.num.ToString();
+    }
+
     public void MoveToPar()
     {
 

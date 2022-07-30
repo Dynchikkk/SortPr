@@ -33,7 +33,7 @@ public class Logic : MonoBehaviour
 
     private void Start()
     {
-        UseSavedData();
+        //UseSavedData();
     }
 
     public void UseSavedData()

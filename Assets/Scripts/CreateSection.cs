@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CreateSection : MonoBehaviour
 {
-    Logic localMain;
-
-    private void Awake()
-    {
-        localMain = Logic.main;
-    }
-
     public void NewSection()
     {
+        Logic localMain = Logic.main;
+
+        print(localMain.sectionPref.gameObject.name);
+        print(localMain.sectionParent.name);
         GameObject newSec = Instantiate(localMain.sectionPref.gameObject, localMain.sectionParent.transform);
         newSec.name = localMain.sectionsList.Count + newSec.name;
         Section current = newSec.GetComponent<Section>();
