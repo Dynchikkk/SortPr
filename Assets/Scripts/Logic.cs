@@ -14,14 +14,18 @@ public class Logic : MonoBehaviour
     public GameObject lineParent;
 
     [Header("Finder Atribute")]
-    [SerializeField]
-    private CreateButton _creater;
+    public CreateButton creater;
     public Button saveButton;
 
     [Header("Section Atribute")]
     public List<Section> sectionsList = new List<Section>();
     public Section sectionPref;
     public GameObject sectionParent;
+
+    [Header("Another")]
+    public GameObject Par;
+    public GameObject InPar;
+    public Section lastSection;
 
     private Saver _saverCopy;
 
@@ -40,7 +44,7 @@ public class Logic : MonoBehaviour
     {
         for (int i = 0; i < _saverCopy.lineListToSave.Count; i++)
         {
-            _creater.NewLine();
+            creater.NewLine();
         }
 
         for (int i = 0; i < lineList.Count; i++)
@@ -65,7 +69,28 @@ public class Logic : MonoBehaviour
     public void SetConditionToList(bool condition)
     {
         lineParent.SetActive(condition);
-        _creater.gameObject.SetActive(condition);
+        creater.gameObject.SetActive(condition);
         saveButton.gameObject.SetActive(condition);
+    }
+
+    //True - par, False - in par
+    public void ChangeMainWorkSpace(bool condition)
+    {
+        switch(condition)
+        {
+            case true:
+                Par.transform.Translate(1090, 0, 0, Space.Self);
+                InPar.transform.Translate(1090, 0, 0, Space.Self);
+                break;
+
+            case false:
+                Par.transform.Translate(-1090, 0, 0, Space.Self);
+                InPar.transform.Translate(-1090, 0, 0, Space.Self);
+                break;
+
+            //default:
+            //    Debug.LogError("Failed to change work space");
+            //    break;
+        }
     }
 }

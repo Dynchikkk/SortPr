@@ -11,13 +11,11 @@ public class CreateButton : MonoBehaviour
 
         // Создаем линию
         GameObject newLine = Instantiate(localMain.linePref.gameObject, localMain.lineParent.transform);
-        newLine.name = localMain.lineList.Count + newLine.name;
+        newLine.name = localMain.lastSection.parContent.parLines.Count + newLine.name;
         Line current = newLine.GetComponent<Line>();
 
-        // Добавляем линию в список со всеми линиями
-        current.lineNum = localMain.lineList.Count + 1;
+        current.lineNum = localMain.lastSection.parContent.parLines.Count + 1;
 
-        // Присваиваем номер
-        localMain.lineList.Add(current);
+        localMain.lastSection.parContent.parLines.Add(current);
     }
 }
