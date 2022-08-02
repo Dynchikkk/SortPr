@@ -16,6 +16,6 @@ public class CreateButton : MonoBehaviour
 
         current.lineNum = localMain.lastSection.parContent.parLines.Count + 1;
 
-        localMain.lastSection.parContent.parLines.Add(current);
+        localMain.lastSection.parContent.parLines.Add(current.currentLine);
     }
 }

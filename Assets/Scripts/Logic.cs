@@ -14,13 +14,14 @@ public class Logic : MonoBehaviour
     public GameObject lineParent;
 
     [Header("Finder Atribute")]
-    public CreateButton creater;
+    public CreateButton createrLine;
     public Button saveButton;
 
     [Header("Section Atribute")]
     public List<Section> sectionsList = new List<Section>();
     public Section sectionPref;
     public GameObject sectionParent;
+    public CreateSection createrSection;
 
     [Header("Another")]
     public GameObject Par;
@@ -37,30 +38,29 @@ public class Logic : MonoBehaviour
 
     private void Start()
     {
-        //UseSavedData();
+        UseSavedData();
     }
 
     public void UseSavedData()
     {
-        for (int i = 0; i < _saverCopy.lineListToSave.Count; i++)
+        for (int i = 0; i < _saverCopy.ParsToSave.Count; i++)
         {
-            creater.NewLine();
+            createrSection.NewSection();
         }
 
-        for (int i = 0; i < lineList.Count; i++)
+        for (int i = 0; i < sectionsList.Count; i++)
         {
-            var locList = _saverCopy.lineListToSave[i];
-            lineList[i].SetParam(locList.date, locList.name, 
-                locList.brought, locList.taken, locList.left);
+            var locList = _saverCopy.ParsToSave[i];
+            sectionsList[i].SetParamToPar(locList.name, locList.parLines);
         }
     }
 
     public void PrepareToSave()
     {
-        _saverCopy.lineListToSave.Clear();
-        foreach (var item in lineList)
+        _saverCopy.ParsToSave.Clear();
+        foreach (var item in sectionsList)
         {
-            _saverCopy.lineListToSave.Add(item.currentLine);
+            _saverCopy.ParsToSave.Add(item.parContent);
         }
 
         _saverCopy.SaveGame();
@@ -69,7 +69,7 @@ public class Logic : MonoBehaviour
     public void SetConditionToList(bool condition)
     {
         lineParent.SetActive(condition);
-        creater.gameObject.SetActive(condition);
+        createrLine.gameObject.SetActive(condition);
         saveButton.gameObject.SetActive(condition);
     }
 
@@ -87,10 +87,6 @@ public class Logic : MonoBehaviour
                 Par.transform.Translate(-1090, 0, 0, Space.Self);
                 InPar.transform.Translate(-1090, 0, 0, Space.Self);
                 break;
-
-            //default:
-            //    Debug.LogError("Failed to change work space");
-            //    break;
         }
     }
 }

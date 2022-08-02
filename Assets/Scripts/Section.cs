@@ -15,9 +15,11 @@ public class Section : MonoBehaviour
 
     private Logic _localLogic;
 
+    public int sectionNum;
+
     public void Start()
     {
-        number.text = parContent.num.ToString();
+        number.text = sectionNum.ToString();
         _localLogic = Logic.main;
     }
 
@@ -43,17 +45,42 @@ public class Section : MonoBehaviour
             current.lineNum = i + 1;
 
             // Задаем параметры линии
-            LineContent lineFather = parContent.parLines[i].currentLine;
+            LineContent lineFather = parContent.parLines[i];
             current.SetParam(lineFather.date, lineFather.name, lineFather.brought,
                 lineFather.taken, lineFather.left);
         }
+    }
+
+    public void SetParamToPar(string name, List<LineContent> parLinesContent)
+    {
+        parContent.name = name;
+        for (int i = 0; i < parLinesContent.Count; i++)
+        {
+            parContent.parLines.Add(parLinesContent[i]);
+        }
+
+        SetText();
+    }
+
+    public void SetText()
+    {
+        if (parContent.name != null)
+        {
+            parName.text = parContent.name;
+        }
+    }
+
+    public void SetParamFromInput(Section current)
+    {
+        parContent.name = current.parName.text;
+
+        SetText();
     }
 }
 
 [Serializable]
 public class Par
 {
-    public int num;
     public string name;
-    public List<Line> parLines = new List<Line>();
+    public List<LineContent> parLines = new List<LineContent>();
 }

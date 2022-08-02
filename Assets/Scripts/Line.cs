@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-
-
 public class Line : MonoBehaviour
 {
     public int lineNum;

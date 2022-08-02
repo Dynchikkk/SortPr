@@ -4,14 +4,14 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+
 public class Saver : MonoBehaviour
 {
     [HideInInspector]
-    public List<LineContent> lineListToSave = new List<LineContent>();
+    public List<Par> ParsToSave = new List<Par>();
 
     private void Awake()
     {
-        //LoadGame();
         LoadGame();
     }
 
@@ -21,27 +21,30 @@ public class Saver : MonoBehaviour
         FileStream file = File.Create(Application.persistentDataPath
           + "/MySaveData.dat");
         SavedData data = new SavedData();
-        data.savedLineList.Clear();
+        data.savedPars.Clear();
 
-        foreach (var item in lineListToSave)
+        foreach (var item in ParsToSave)
         {
-            data.savedLineList.Add(item);
+            data.savedPars.Add(item);
         }
 
         bf.Serialize(file, data);
         file.Close();
 
-        lineListToSave.Clear();
+        ParsToSave.Clear();
 
         Debug.Log("Game data saved!");
     }
+
     public void LoadGame()
     {
-        lineListToSave.Clear();
+        ParsToSave.Clear();
 
         if (File.Exists(Application.persistentDataPath
           + "/MySaveData.dat"))
         {
+            print(Application.persistentDataPath
+          + "/MySaveData.dat");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file =
               File.Open(Application.persistentDataPath
@@ -49,9 +52,9 @@ public class Saver : MonoBehaviour
             SavedData data = (SavedData)bf.Deserialize(file);
             file.Close();
 
-            foreach (var item in data.savedLineList)
+            foreach (var item in data.savedPars)
             {
-                lineListToSave.Add(item);
+                ParsToSave.Add(item);
             }
 
             Debug.Log("Game data loaded!");
@@ -64,5 +67,5 @@ public class Saver : MonoBehaviour
 [Serializable]
 public class SavedData
 {
-    public List<LineContent> savedLineList = new List<LineContent>();
+    public List<Par> savedPars = new List<Par>();
 }

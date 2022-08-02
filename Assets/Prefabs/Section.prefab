@@ -260,12 +260,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parContent:
-    num: 0
     name: 
     parLines: []
   number: {fileID: 5686192974761970033}
   parName: {fileID: 4340153976584539688}
   toPar: {fileID: 0}
+  sectionNum: 0
 --- !u!1 &4340153975338190787
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,12 +588,12 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6847467121399504714}
         m_MethodName: SetParamFromInput
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Line, Assembly-CSharp
+          m_ObjectArgument: {fileID: 6847467121399504714}
+          m_ObjectArgumentAssemblyTypeName: Section, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

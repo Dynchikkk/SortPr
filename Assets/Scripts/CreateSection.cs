@@ -12,7 +12,7 @@ public class CreateSection : MonoBehaviour
         newSec.name = localMain.sectionsList.Count + newSec.name;
         Section current = newSec.GetComponent<Section>();
 
-        current.parContent.num = localMain.sectionsList.Count + 1;
+        current.sectionNum = localMain.sectionsList.Count + 1;
 
         localMain.sectionsList.Add(current);
     }

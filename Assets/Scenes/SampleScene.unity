@@ -482,7 +482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &343366190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -495,12 +495,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1497596129}
-  m_Father: {fileID: 1240813082}
-  m_RootOrder: 4
+  m_Father: {fileID: 400213471}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 220, y: -1020}
+  m_AnchoredPosition: {x: -320, y: -50}
   m_SizeDelta: {x: 380, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343366191
@@ -623,6 +623,7 @@ RectTransform:
   m_Children:
   - {fileID: 996787081}
   - {fileID: 2278056189005951082}
+  - {fileID: 343366190}
   m_Father: {fileID: 123312651}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -841,12 +842,13 @@ MonoBehaviour:
   lineList: []
   linePref: {fileID: 435090769514035858, guid: 189712c4f3d6eed4fb72bf72c2ed1c07, type: 3}
   lineParent: {fileID: 802068373}
-  creater: {fileID: 0}
+  createrLine: {fileID: 1880702422}
   saveButton: {fileID: 343366191}
   sectionsList: []
   sectionPref: {fileID: 6847467121399504714, guid: ef1e548bffda762479d049af724c6ed3,
     type: 3}
   sectionParent: {fileID: 2096477328}
+  createrSection: {fileID: 1299569660}
   Par: {fileID: 123312650}
   InPar: {fileID: 1624720110}
   lastSection: {fileID: 0}
@@ -919,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264b34e0ccf403e479b4199b4639ea3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineListToSave: []
+  ParsToSave: []
 --- !u!1 &587590638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,7 +2304,6 @@ RectTransform:
   - {fileID: 1639927183}
   - {fileID: 123312651}
   - {fileID: 1624720111}
-  - {fileID: 343366190}
   m_Father: {fileID: 425230831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2438,6 +2439,18 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
+--- !u!114 &1299569660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4798868394883146489, guid: f3e8a0cdcc579354eae7cb051925bd13,
+    type: 3}
+  m_PrefabInstance: {fileID: 3069220114897108391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981d172d347a77443ac151da5551a31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1497596128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3361,6 +3374,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
+--- !u!114 &1880702422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7083108074666138998, guid: 930d7965c1b58ac4b8e84ebc2e29fdd5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7065270126232242453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6598c0e20f5e824b9d3db6b664537bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1917070648
 GameObject:
   m_ObjectHideFlags: 0
