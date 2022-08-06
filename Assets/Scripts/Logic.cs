@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using TMPro;
 
 public class Logic : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Logic : MonoBehaviour
     public Section sectionPref;
     public GameObject sectionParent;
     public CreateSection createrSection;
+    public TMP_Text sectionName;
 
     [Header("Another")]
     public GameObject Par;

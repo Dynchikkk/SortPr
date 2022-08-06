@@ -28,6 +28,8 @@ public class Section : MonoBehaviour
         _localLogic.ChangeMainWorkSpace(false);
         _localLogic.lastSection = this;
 
+        _localLogic.sectionName.text = parContent.name;
+
         // Destroy old lines
         int cC = _localLogic.lineParent.transform.childCount;
         for (int i = 0; i < cC; i++)
