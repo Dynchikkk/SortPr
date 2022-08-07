@@ -28,7 +28,7 @@ public class Section : MonoBehaviour
         _localLogic.ChangeMainWorkSpace(false);
         _localLogic.lastSection = this;
 
-        _localLogic.sectionName.text = parContent.name;
+        _localLogic.sectionNameText.text = parContent.name;
 
         // Destroy old lines
         int cC = _localLogic.lineParent.transform.childCount;
@@ -78,11 +78,17 @@ public class Section : MonoBehaviour
 
         SetText();
     }
+
+    public void SetTextToLeft()
+    {
+        _localLogic.sectionLeftText.text = parContent.left.ToString();
+    }
 }
 
 [Serializable]
 public class Par
 {
     public string name;
+    public int left;
     public List<LineContent> parLines = new List<LineContent>();
 }

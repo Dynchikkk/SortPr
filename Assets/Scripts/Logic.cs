@@ -23,7 +23,8 @@ public class Logic : MonoBehaviour
     public Section sectionPref;
     public GameObject sectionParent;
     public CreateSection createrSection;
-    public TMP_Text sectionName;
+    public TMP_Text sectionNameText;
+    public TMP_Text sectionLeftText;
 
     [Header("Another")]
     public GameObject Par;

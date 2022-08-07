@@ -20,9 +20,13 @@ public class Line : MonoBehaviour
 
     // Anonther
     private int prevLength;
+    private Logic _localLogic;
+    private int _prevLeft;
 
     public void Start()
     {
+        _localLogic = Logic.main;
+
         number.text = lineNum.ToString();
 
         SetParam(currentLine.date, currentLine.name, currentLine.brought, currentLine.taken, currentLine.left);
@@ -37,6 +41,17 @@ public class Line : MonoBehaviour
         leftField.text = res.ToString();
     }
 
+    public void SetPrevLeft()
+    {
+        _prevLeft = Convert.ToInt32(leftField.text);
+    }
+
+    public void SetLeftToSection()
+    {
+        _localLogic.lastSection.parContent.left += (Convert.ToInt32(broughtField.text) - Convert.ToInt32(takenField.text)) - _prevLeft;
+        _localLogic.lastSection.SetTextToLeft();
+    }
+
     // Выставляем текст в инпуте
     public void SetText()
     {
@@ -47,7 +62,7 @@ public class Line : MonoBehaviour
         if (currentLine.date != null)
             dateField.text = currentLine.date.ToString();
 
-        if(currentLine.name != null)
+        if (currentLine.name != null)
             nameField.text = currentLine.name.ToString();
 
         if (br != null)
