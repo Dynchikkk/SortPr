@@ -53,6 +53,16 @@ public class Section : MonoBehaviour
         }
     }
 
+    public void SetLeft()
+    {
+        for (int i = 0; i < parContent.parLines.Count; i++)
+        {
+            parContent.left += parContent.parLines[i].left;
+        }
+
+        SetTextToLeft();
+    }
+
     public void SetParamToPar(string name, List<LineContent> parLinesContent)
     {
         parContent.name = name;
