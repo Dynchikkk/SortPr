@@ -76,6 +76,19 @@ public class Logic : MonoBehaviour
         saveButton.gameObject.SetActive(condition);
     }
 
+    public void SetChangesInLine()
+    {
+        for (int i = 0; i < lastSection.parContent.parLines.Count; i++)
+        {
+            LineContent lineContentOfCurrent = lastSection.parContent.parLines[i];
+            LineContent notSavedLine = lineParent.transform.GetChild(i).GetComponent<Line>().currentLine;
+            lineContentOfCurrent.date = notSavedLine.date;
+            lineContentOfCurrent.brought = notSavedLine.brought;
+            lineContentOfCurrent.taken = notSavedLine.taken;
+            lineContentOfCurrent.left = notSavedLine.left;
+        }
+    }
+
     //True - par, False - in par
     public void ChangeMainWorkSpace(bool condition)
     {
